@@ -61,6 +61,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Enum\System.cs" />
+    <Compile Include="Models\Icons\Manager.cs" />
+    <Compile Include="Models\Structure\Manager.cs" />
+    <Compile Include="Models\TreeView\Item.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -104,6 +108,41 @@
   <ItemGroup>
     <Resource Include="Assets\Logo.ico" />
     <Resource Include="Assets\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\Bar\logs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\Files\archive.png" />
+    <Resource Include="Assets\Icons\Files\code.png" />
+    <Resource Include="Assets\Icons\Files\cpp.png" />
+    <Resource Include="Assets\Icons\Files\css.png" />
+    <Resource Include="Assets\Icons\Files\database.png" />
+    <Resource Include="Assets\Icons\Files\document.png" />
+    <Resource Include="Assets\Icons\Files\html.png" />
+    <Resource Include="Assets\Icons\Files\image.png" />
+    <Resource Include="Assets\Icons\Files\java.png" />
+    <Resource Include="Assets\Icons\Files\js.png" />
+    <Resource Include="Assets\Icons\Files\md.png" />
+    <Resource Include="Assets\Icons\Files\pdf.png" />
+    <Resource Include="Assets\Icons\Files\py.png" />
+    <Resource Include="Assets\Icons\Files\rb.png" />
+    <Resource Include="Assets\Icons\Files\txt.png" />
+    <Resource Include="Assets\Icons\Files\video.png" />
+    <Resource Include="Assets\Icons\Files\web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\Folders\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\Files\audio.png" />
+    <Resource Include="Assets\Icons\Files\file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\Files\settings.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

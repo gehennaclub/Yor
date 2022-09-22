@@ -7,12 +7,14 @@
         xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI"
         xmlns:adonisExtensions="clr-namespace:AdonisUI.Extensions;assembly=AdonisUI"
         xmlns:local="clr-namespace:Yor"
+        xmlns:self="clr-namespace:Yor"
+        xmlns:tree="clr-namespace:Yor.Models.TreeView"
         mc:Ignorable="d"
         Height="700"
         Width="1100"
         Title="Yor"
         Background="#2A2B34"
-        Icon="/Assets/Logo.png">
+        Icon="/Assets/Logo.png" Loaded="AdonisWindow_Loaded">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -45,5 +47,66 @@
                 </Canvas>
             </MenuItem>
         </Menu>
+
+        <!-- Log bar -->
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid Width="20" Height="20" Margin="5,5,5,5">
+                    <Image Source="/Assets/Icons/Bar/logs.png"/>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid Margin="5,6,0,0">
+                    <TextBlock Text="Waiting" Foreground="#74757B"/>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Column="2">
+                <Grid Width="20" Height="20" Margin="5,5,5,5">
+                    <Image Source="/Assets/Icons/Bar/logs.png"/>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <!-- Files browser -->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid>
+                    <Border BorderBrush="#3D3D3D" BorderThickness="2">
+                        <ScrollViewer Height="Auto" CanContentScroll="True" VerticalScrollBarVisibility="Auto">
+                            <TreeView Name="tree">
+                                <TreeView.ItemTemplate>
+                                    <HierarchicalDataTemplate DataType="{x:Type tree:Item}" ItemsSource="{Binding Items}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Source="{Binding Image}" Width="17" Margin="5,0,0,0"/>
+                                            <TextBlock Text="{Binding Name}" Margin="10,0,0,0"/>
+                                        </StackPanel>
+                                    </HierarchicalDataTemplate>
+                                </TreeView.ItemTemplate>
+                            </TreeView>
+                        </ScrollViewer>
+                    </Border>
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Border BorderBrush="#3D3D3D" BorderThickness="2">
+                    <Grid Width="20" Height="20" Margin="5,5,5,5">
+                        <Image Source="/Assets/Icons/Bar/logs.png"/>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
     </Grid>
 </adonisControls:AdonisWindow>
