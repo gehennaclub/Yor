@@ -109,7 +109,7 @@
                     </Grid.Background>
                     <Border BorderBrush="{StaticResource GridBorders}" BorderThickness="2">
                         <Grid Width="20" Height="20" Margin="5,5,5,5">
-                            <Image Source="/Assets/Icons/Bar/logs.png"/>
+                            <TextBlock x:Name="editor" Text="Test" Foreground="White"/>
                         </Grid>
                     </Border>
                 </Grid>
