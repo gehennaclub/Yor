@@ -87,6 +87,7 @@
     <Compile Include="Models\System\OS.cs" />
     <Compile Include="Models\Threads\Manager.cs" />
     <Compile Include="Models\TreeView\Item.cs" />
+    <Compile Include="Models\Logger\Manager.cs" />
     <Compile Include="ViewModels\Bar.cs" />
     <Compile Include="ViewModels\System.cs" />
     <Page Include="MainWindow.xaml">
