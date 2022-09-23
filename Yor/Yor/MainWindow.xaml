@@ -14,23 +14,32 @@
         Width="1100"
         Title="Yor"
         Background="#2A2B34"
-        Icon="/Assets/Logo.png" Loaded="AdonisWindow_Loaded">
+        Icon="/Assets/Logo.png"
+        WindowStartupLocation="CenterScreen"
+        Loaded="AdonisWindow_Loaded">
+
+    <adonisControls:AdonisWindow.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Resources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </adonisControls:AdonisWindow.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="{adonisUi:Space 1}" />
             <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Menu Grid.Row="0">
-            <MenuItem Header="Directory">
-                <MenuItem Header="Selector" Command="{Binding MenuCommand}" CommandParameter="Directory_Selector">
+        <Menu Grid.Column="0" Grid.Row="0">
+            <MenuItem Header="Project">
+                <MenuItem Header="Directory" Command="{Binding MenuCommand}" CommandParameter="Directory_Selector">
                     <MenuItem.Icon>
                         <Viewbox Width="16" Height="16">
                             <Canvas Width="24" Height="24">
-                                <!--<Path Fill="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}" Data="{StaticResource DirectoryIcon}" />-->
+                                <Path Fill="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"/>
                             </Canvas>
                         </Viewbox>
                     </MenuItem.Icon>
@@ -48,64 +57,92 @@
             </MenuItem>
         </Menu>
 
-        <!-- Log bar -->
-        <Grid Grid.Row="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
+        <Grid Grid.Row="2" Background="{StaticResource GridMainBackground}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
 
-            <Grid Grid.Column="0">
-                <Grid Width="20" Height="20" Margin="5,5,5,5">
-                    <Image Source="/Assets/Icons/Bar/logs.png"/>
+            <!-- Main content -->
+            <Grid Grid.Row="0" Margin="2,2,2,2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Treeview -->
+                    <Grid Grid.Column="0" Margin="2,2,2,2" Background="{StaticResource GridToolsBackground}">
+                        <Border BorderBrush="{StaticResource GridBorders}" BorderThickness="2">
+                            <ScrollViewer Height="Auto" CanContentScroll="True" VerticalScrollBarVisibility="Auto">
+                                <TreeView Name="tree">
+                                    <TreeView.ItemTemplate>
+                                        <HierarchicalDataTemplate DataType="{x:Type tree:Item}" ItemsSource="{Binding Items}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Source="{Binding Image}" Width="20" Margin="0,0,0,0"/>
+                                                <TextBlock Text="{Binding Name}" Margin="10,0,0,0" FontSize="12" Foreground="White"/>
+                                            </StackPanel>
+                                        </HierarchicalDataTemplate>
+                                    </TreeView.ItemTemplate>
+                                </TreeView>
+                            </ScrollViewer>
+                        </Border>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Margin="2,2,2,2" Background="{StaticResource GridToolsBackground}">
+                        <Border BorderBrush="{StaticResource GridBorders}" BorderThickness="2">
+                        </Border>
+                    </Grid>
+                    
+                    <GridSplitter Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Background="Transparent" Height="2"/>
                 </Grid>
-            </Grid>
 
-            <Grid Grid.Column="1">
-                <Grid Margin="5,6,0,0">
-                    <TextBlock Text="Waiting" Foreground="#74757B"/>
-                </Grid>
-            </Grid>
-
-            <Grid Grid.Column="2">
-                <Grid Width="20" Height="20" Margin="5,5,5,5">
-                    <Image Source="/Assets/Icons/Bar/logs.png"/>
-                </Grid>
-            </Grid>
-        </Grid>
-
-        <!-- Files browser -->
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Grid Grid.Column="0">
-                <Grid>
-                    <Border BorderBrush="#3D3D3D" BorderThickness="2">
-                        <ScrollViewer Height="Auto" CanContentScroll="True" VerticalScrollBarVisibility="Auto">
-                            <TreeView Name="tree">
-                                <TreeView.ItemTemplate>
-                                    <HierarchicalDataTemplate DataType="{x:Type tree:Item}" ItemsSource="{Binding Items}">
-                                        <StackPanel Orientation="Horizontal">
-                                            <Image Source="{Binding Image}" Width="17" Margin="5,0,0,0"/>
-                                            <TextBlock Text="{Binding Name}" Margin="10,0,0,0"/>
-                                        </StackPanel>
-                                    </HierarchicalDataTemplate>
-                                </TreeView.ItemTemplate>
-                            </TreeView>
-                        </ScrollViewer>
+                <!-- Editor -->
+                <!--Background="{StaticResource GridToolsBackground}"-->
+                <Grid Grid.Column="1" Margin="2,2,2,2">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="/Assets/Background/background.png" Stretch="UniformToFill"/>
+                    </Grid.Background>
+                    <Border BorderBrush="{StaticResource GridBorders}" BorderThickness="2">
+                        <Grid Width="20" Height="20" Margin="5,5,5,5">
+                            <Image Source="/Assets/Icons/Bar/logs.png"/>
+                        </Grid>
                     </Border>
                 </Grid>
+
+                <GridSplitter Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Stretch" Background="Transparent" Width="2"/>
+                <GridSplitter Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Stretch" Background="Transparent" Width="2"/>
             </Grid>
-            <Grid Grid.Column="1">
-                <Border BorderBrush="#3D3D3D" BorderThickness="2">
+
+            <!-- Log bar -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
                     <Grid Width="20" Height="20" Margin="5,5,5,5">
                         <Image Source="/Assets/Icons/Bar/logs.png"/>
                     </Grid>
-                </Border>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Grid Margin="5,6,0,0">
+                        <TextBlock Text="Waiting" Foreground="White"/>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Column="2">
+                    <Grid Width="20" Height="20" Margin="5,5,5,5">
+                        <TextBlock x:Name="os_version"/>
+                    </Grid>
+                </Grid>
             </Grid>
         </Grid>
     </Grid>

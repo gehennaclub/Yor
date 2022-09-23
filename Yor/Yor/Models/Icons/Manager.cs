@@ -13,160 +13,6 @@ namespace Yor.Models.Icons
             {
                 new List<string>()
                 {
-                    ".accdb",
-                    ".csv",
-                    ".dat",
-                    ".db",
-                    ".dbf",
-                    ".log",
-                    ".mdb",
-                    ".pdb",
-                    ".sav",
-                    ".sql"
-                },
-                "/Assets/Icons/Files/database.png"
-            },
-            {
-                new List<string>()
-                {
-                    ".txt"
-                },
-                "/Assets/Icons/Files/txt.png"
-            },
-            {
-                new List<string>()
-                {
-                    ".aif",
-                    ".cda",
-                    ".iff",
-                    ".mid",
-                    ".midi",
-                    ".mp3",
-                    ".mpa",
-                    ".wav",
-                    ".wma",
-                    ".wpl"
-                },
-                "/Assets/Icons/Files/audio.png"
-            },
-            {
-                new List<string>()
-                {
-                    ".ai",
-                    ".bmp",
-                    ".ico",
-                    ".gif",
-                    ".jpeg",
-                    ".jpg",
-                    ".max",
-                    ".obj",
-                    ".png",
-                    ".ps",
-                    ".psd",
-                    ".svg",
-                    ".tif",
-                    ".tiff",
-                    ".3ds",
-                    ".3dm"
-                },
-                "/Assets/Icons/Files/image.png"
-            },
-            {
-                new List<string>()
-                {
-                    ".avi",
-                    ".flv",
-                    ".h264",
-                    ".m4v",
-                    ".mkv",
-                    ".mov",
-                    ".mp4",
-                    ".mpg",
-                    ".mpeg",
-                    ".rm",
-                    ".swf",
-                    ".vob",
-                    ".wmv",
-                    ".3g2",
-                    ".3gp"
-                },
-                "/Assets/Icons/Files/video.png"
-            },
-            {
-                new List<string>()
-                {
-                    ".doc",
-                    ".docx",
-                    ".odt",
-                    ".msg",
-                    ".rtf",
-                    ".tex",
-                    ".txt",
-                    ".wks",
-                    ".wps",
-                    ".wpd",
-                    ".ods",
-                    ".xlr",
-                    ".xls",
-                    ".xlsx",
-                    ".key",
-                    ".odp",
-                    ".pps",
-                    ".ppt",
-                    ".pptx"
-                },
-                "/Assets/Icons/Files/document.png"
-            },
-            {
-                new List<string>()
-                {
-                    ".pdf"
-                },
-                "/Assets/Icons/Files/pdf.png"
-            },
-            {
-                new List<string>()
-                {
-                    ".htm",
-                    ".html",
-                    ".xhtml"
-                },
-                "/Assets/Icons/Files/html.png"
-            },
-            {
-                new List<string>()
-                {
-                    ".css",
-                    ".scss"
-                },
-                "/Assets/Icons/Files/css.png"
-            },
-            {
-                new List<string>()
-                {
-                    ".js"
-                },
-                "/Assets/Icons/Files/js.png"
-            },
-            {
-                new List<string>()
-                {
-                    ".asp",
-                    ".aspx",
-                    ".cer",
-                    ".cfm",
-                    ".cgi",
-                    ".pl",
-                    ".jsp",
-                    ".part",
-                    ".php",
-                    ".rss"
-                },
-                "/Assets/Icons/Files/web.png"
-            },
-            {
-                new List<string>()
-                {
                     ".7z",
                     ".arj",
                     ".deb",
@@ -178,61 +24,26 @@ namespace Yor.Models.Icons
                     ".z",
                     ".zip"
                 },
-                "/Assets/Icons/Files/archive.png"
+                "/Assets/Icons/Files/Windows/archive.png"
             },
             {
                 new List<string>()
                 {
-                    ".java"
-                },
-                "/Assets/Icons/Files/java.png"
-            },
-            {
-                new List<string>()
-                {
-                    ".py"
-                },
-                "/Assets/Icons/Files/py.png"
-            },
-            {
-                new List<string>()
-                {
-                    ".rb"
-                },
-                "/Assets/Icons/Files/rb.png"
-            },
-            {
-                new List<string>()
-                {
-                    ".md"
-                },
-                "/Assets/Icons/Files/md.png"
-            },
-            {
-                new List<string>()
-                {
-                    ".cpp"
-                },
-                "/Assets/Icons/Files/cpp.png"
-            },
-            {
-                new List<string>()
-                {
-                    ".c",
-                    ".pl",
-                    ".cpp",
-                    ".cs",
-                    ".h",
                     ".java",
                     ".py",
+                    ".rb",
+                    ".cpp",
+                    ".c",
+                    ".cs",
+                    ".pl",
+                    ".h",
                     ".sh",
                     ".swift",
                     ".bat",
                     ".vb",
-                    ".rb",
                     ".php"
                 },
-                "/Assets/Icons/Files/code.png"
+                "/Assets/Icons/Files/Windows/code.png"
             },
             {
                 new List<string>()
@@ -240,17 +51,111 @@ namespace Yor.Models.Icons
                     ".ini",
                     ".xml",
                     ".xaml",
-                    ".json"
+                    ".json",
+                    ".config",
+                    ".info"
                 },
-                "/Assets/Icons/Files/settings.png"
+                "/Assets/Icons/Files/Windows/settings.png"
+            },
+            {
+                new List<string>()
+                {
+                    ".exe"
+                },
+                "/Assets/Icons/Files/Windows/app.png"
+            },
+            {
+                new List<string>()
+                {
+                    ".so",
+                    ".lib"
+                },
+                "/Assets/Icons/Files/Windows/lib.png"
+            },
+            {
+                new List<string>()
+                {
+                    ".dll"
+                },
+                "/Assets/Icons/Files/Windows/dll.png"
+            },
+            {
+                new List<string>()
+                {
+                    ".o",
+                    ".obj"
+                },
+                "/Assets/Icons/Files/Windows/obj.png"
+            },
+            {
+                new List<string>()
+                {
+                    "metadata"
+                },
+                "/Assets/Icons/Files/Windows/metadata.png"
+            },
+            {
+                new List<string>()
+                {
+                    ".assets"
+                },
+                "/Assets/Icons/Files/Windows/assets.png"
+            },
+            {
+                new List<string>()
+                {
+                    ".res",
+                    ".resS"
+                },
+                "/Assets/Icons/Files/Windows/res.png"
             }
         };
 
-        public static string Find(string extension)
+        private static Dictionary<List<string>, string> folders = new Dictionary<List<string>, string>()
         {
-            string default_image = "/Assets/Icons/Files/file.png";
+            {
+                new List<string>()
+                {
+                    "Resources"
+                },
+                "/Assets/Icons/Folders/assets.png"
+            },
+            {
+                new List<string>()
+                {
+                    "Managed"
+                },
+                "/Assets/Icons/Folders/library.png"
+            },
+            {
+                new List<string>()
+                {
+                    "Mono"
+                },
+                "/Assets/Icons/Folders/mono.png"
+            }
+        };
+
+        public static string File(string extension)
+        {
+            string default_image = "/Assets/Icons/Files/Windows/bin.png";
 
             foreach (KeyValuePair<List<string>, string> items in extensions)
+            {
+                if (items.Key.Contains(extension) == true)
+                {
+                    return (items.Value);
+                }
+            }
+
+            return (default_image);
+        }
+
+        public static string Folder(string extension)
+        {
+            string default_image = "/Assets/Icons/Folders/folder.png";
+
+            foreach (KeyValuePair<List<string>, string> items in folders)
             {
                 if (items.Key.Contains(extension) == true)
                 {

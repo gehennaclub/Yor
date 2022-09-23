@@ -25,8 +25,8 @@ namespace Yor.Models.Structure
                 {
                     Name = name,
                     Path = file,
-                    Image = Icons.Manager.Find(extension),
-                    Type = Enum.System.Format.file,
+                    Image = Icons.Manager.File(extension),
+                    Type = System.File.Format.file,
                     Items = null
                 });
             }
@@ -38,19 +38,17 @@ namespace Yor.Models.Structure
         {
             string[] files = Directory.GetDirectories(root, "*");
             string name = null;
-            string extension = null;
             List<TreeView.Item> items = new List<TreeView.Item>();
 
             foreach (string file in files)
             {
                 name = Path.GetFileName(file);
-                extension = Path.GetExtension(name);
                 items.Add(new TreeView.Item()
                 {
                     Name = name,
                     Path = file,
-                    Image = "/Assets/Icons/Folders/folder.png",
-                    Type = Enum.System.Format.folder,
+                    Image = Icons.Manager.Folder(name),
+                    Type = System.File.Format.folder,
                     Items = Build(file)
                 });
             }

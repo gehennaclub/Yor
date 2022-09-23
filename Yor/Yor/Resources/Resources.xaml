@@ -1,0 +1,7 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <Brush x:Key="GridMainBackground">#21252B</Brush>
+    <Brush x:Key="GridToolsBackground">#282C34</Brush>
+    <Brush x:Key="GridBorders">#3D3D3D</Brush>
+</ResourceDictionary>

@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Yor.ViewModels;
 using MessageBox = System.Windows.MessageBox;
 
 namespace Yor
@@ -25,21 +26,31 @@ namespace Yor
     public partial class MainWindow : AdonisWindow
     {
         private Thread thread { get; set; }
+        private ViewModels.Bar bar { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
+            Initialize();
+        }
+
+        private void Initialize()
+        {
+            bar = new ViewModels.Bar(os_version);
         }
 
         private void Build()
         {
-            App.Current.Dispatcher.Invoke(() =>
-            {
-                List<Models.TreeView.Item> items = Models.Structure.Manager.Build("../../");
-                MessageBox.Show(items.Count().ToString());
-                foreach (Models.TreeView.Item item in items)
-                    tree.Items.Add(item);
-            });
+            Models.Threads.Manager.Edit(Load);
+        }
+
+        private void Load()
+        {
+            List<Models.TreeView.Item> items = Models.Structure.Manager.Build("../../");
+
+            bar.Refresh();
+            foreach (Models.TreeView.Item item in items)
+                tree.Items.Add(item);
         }
 
         private void AdonisWindow_Loaded(object sender, RoutedEventArgs e)
