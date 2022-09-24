@@ -82,7 +82,7 @@
 
                     <!-- Treeview -->
                     <Grid Grid.Column="0" Margin="2,2,2,2" Background="{StaticResource GridToolsBackground}">
-                        <Border BorderBrush="{StaticResource GridBorders}" BorderThickness="2">
+                        <Border BorderBrush="{StaticResource GridBorders}" BorderThickness="1">
                             <ScrollViewer Height="Auto" CanContentScroll="True" VerticalScrollBarVisibility="Auto">
                                 <TreeView Name="tree" SelectedItemChanged="tree_SelectedItemChanged">
                                     <TreeView.ItemTemplate>
@@ -122,10 +122,19 @@
                     <!--<Border BorderBrush="{StaticResource GridBorders}" BorderThickness="2">-->
                         <TabControl>
                             <TabControl.Background>
-                                <ImageBrush ImageSource="/Assets/Background/background_5.png" Stretch="UniformToFill" AlignmentX="Left" AlignmentY="Center"/>
+                                <ImageBrush ImageSource="/Assets/Background/background_7.png" Stretch="UniformToFill" AlignmentX="Left" AlignmentY="Center"/>
                             </TabControl.Background>
                             <TabItem Header="Information">
-                                
+                            <StackPanel>
+                                <Label Content="Welcome in Yor" FontSize="20" HorizontalContentAlignment="Center" Margin="0,100,0,0"/>
+                                <Label Content="Please note that this Yor version is a pre release version" HorizontalContentAlignment="Center" Margin="0,30,0,0"/>
+                                <Label Content="The interface and the tools implemented will change in the future versions" HorizontalContentAlignment="Center" Margin="0,0,0,0"/>
+                                <Label Content="If you have a bug, an issue, a crash, some questions, or you just want to follow" HorizontalContentAlignment="Center" Margin="0,0,0,0"/>
+                                <Label Content="the development process, you can simply join the discord"  HorizontalContentAlignment="Center" Margin="0,0,0,0"/>
+                                <Label Content="Discord: https://discord.gg/RBhWszbRuU" HorizontalContentAlignment="Center" Margin="0,50,0,0"/>
+                                <Label Content="Have fun" HorizontalContentAlignment="Center" Margin="0,0,0,0"/>
+                                <Label Content="neo" HorizontalContentAlignment="Center" Margin="0,50,0,0"/>
+                            </StackPanel>
                             </TabItem>
                             <TabItem Header="Raw">
                                 <Grid>
