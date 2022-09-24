@@ -13,6 +13,9 @@ namespace Yor.Models.Logger
         private TextBlock block { get; set; }
         private int limit { get; set; }
         private List<string> logs { get; set; }
+        private string session { get; set; }
+        private string folder { get; set; }
+        private string message { get; set; }
 
         public Manager(TextBlock block)
         {
@@ -24,26 +27,45 @@ namespace Yor.Models.Logger
         private void Initialize()
         {
             limit = 10;
+            session = $"{DateTime.Now.ToString("ddMMyyhh")}.yl";
+            folder = "Logs";
 
             logs = new List<string>();
         }
 
         private void Write()
         {
-            block.Text = logs[logs.Count() - 1];
+            block.Text = message;
         }
 
         public void Record(string message)
         {
+            string full = $"[{DateTime.Now.ToString("hh:mm:ss")}] | {message}";
+
+            this.message = message;
+
+            if (logs.Count >= limit)
+            {
+                Dump();
+                logs.Clear();
+            }
+            logs.Add(full);
             Models.Threads.Manager.Edit(Write);
+        }
+
+        public void Force()
+        {
+            Dump();
         }
 
         private void Dump()
         {
-            if (Directory.Exists() == false)
+            if (Directory.Exists(folder) == false)
             {
-
+                Directory.CreateDirectory(folder);
             }
+            File.AppendAllLines($"{folder}/{session}", logs);
+            logs.Clear();
         }
     }
 }

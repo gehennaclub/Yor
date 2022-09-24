@@ -61,8 +61,14 @@
     <Reference Include="AdonisUI.ClassicTheme, Version=1.17.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AdonisUI.ClassicTheme.1.17.1\lib\net45\AdonisUI.ClassicTheme.dll</HintPath>
     </Reference>
+    <Reference Include="Ookii.Dialogs.Wpf, Version=5.0.0.0, Culture=neutral, PublicKeyToken=66aa232afad40158, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ookii.Dialogs.Wpf.5.0.1\lib\net462\Ookii.Dialogs.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -90,6 +96,9 @@
     <Compile Include="Models\Logger\Manager.cs" />
     <Compile Include="ViewModels\Bar.cs" />
     <Compile Include="ViewModels\System.cs" />
+    <Compile Include="Views\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -103,6 +112,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Resources\Resources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\About.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -184,7 +197,23 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Background\background.png" />
+    <Resource Include="Assets\Background\background_0.png" />
+    <Resource Include="Assets\Background\background_1.png" />
+    <Resource Include="Assets\Background\background_2.png" />
+    <Resource Include="Assets\Background\background_3.png" />
+    <Resource Include="Assets\Background\background_4.png" />
+    <Resource Include="Assets\Background\background_5.png" />
+    <Resource Include="Assets\Background\background_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\Menu\config.png" />
+    <Resource Include="Assets\Icons\Menu\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\Menu\about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\Menu\properties.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

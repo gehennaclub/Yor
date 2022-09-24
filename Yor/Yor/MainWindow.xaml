@@ -35,25 +35,30 @@
 
         <Menu Grid.Column="0" Grid.Row="0">
             <MenuItem Header="Project">
-                <MenuItem Header="Directory" Command="{Binding MenuCommand}" CommandParameter="Directory_Selector">
+                <MenuItem Header="Directory" Command="{Binding MenuCommand}" Click="MenuItem_Click">
                     <MenuItem.Icon>
-                        <Viewbox Width="16" Height="16">
-                            <Canvas Width="24" Height="24">
-                                <Path Fill="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"/>
-                            </Canvas>
-                        </Viewbox>
+                        <Image Source="/Assets/Icons/Folders/folder.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Properties" Command="{Binding MenuCommand}" Click="MenuItem_Click_About">
+                    <MenuItem.Icon>
+                        <Image Source="/Assets/Icons/Menu/properties.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Settings" Command="{Binding MenuCommand}" CommandParameter="About">
-                <Canvas Width="24" Height="24">
-                    <!--<Path Fill="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}" Data="{StaticResource DirectoryIcon}" />-->
-                </Canvas>
+                <MenuItem Header="Interface" Command="{Binding MenuCommand}" Click="MenuItem_Click_About">
+                    <MenuItem.Icon>
+                        <Image Source="/Assets/Icons/Menu/config.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
             <MenuItem Header="About" Command="{Binding MenuCommand}" CommandParameter="About">
-                <Canvas Width="24" Height="24">
-                    <!--<Path Fill="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}" Data="{StaticResource DirectoryIcon}" />-->
-                </Canvas>
+                <MenuItem Header="Informations" Command="{Binding MenuCommand}" Click="MenuItem_Click_About">
+                    <MenuItem.Icon>
+                        <Image Source="/Assets/Icons/Menu/about.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
         </Menu>
 
@@ -79,7 +84,7 @@
                     <Grid Grid.Column="0" Margin="2,2,2,2" Background="{StaticResource GridToolsBackground}">
                         <Border BorderBrush="{StaticResource GridBorders}" BorderThickness="2">
                             <ScrollViewer Height="Auto" CanContentScroll="True" VerticalScrollBarVisibility="Auto">
-                                <TreeView Name="tree">
+                                <TreeView Name="tree" SelectedItemChanged="tree_SelectedItemChanged">
                                     <TreeView.ItemTemplate>
                                         <HierarchicalDataTemplate DataType="{x:Type tree:Item}" ItemsSource="{Binding Items}">
                                             <StackPanel Orientation="Horizontal">
@@ -104,13 +109,26 @@
                 <!-- Editor -->
                 <!--Background="{StaticResource GridToolsBackground}"-->
                 <Grid Grid.Column="1" Margin="2,2,2,2">
-                    <Grid.Background>
-                        <ImageBrush ImageSource="/Assets/Background/background.png" Stretch="UniformToFill"/>
-                    </Grid.Background>
                     <Border BorderBrush="{StaticResource GridBorders}" BorderThickness="2">
-                        <Grid Width="20" Height="20" Margin="5,5,5,5">
-                            <TextBlock x:Name="editor" Text="Test" Foreground="White"/>
-                        </Grid>
+                        <TabControl>
+                            <TabControl.Background>
+                                <ImageBrush ImageSource="/Assets/Background/background_5.png" Stretch="UniformToFill" AlignmentX="Left" AlignmentY="Center"/>
+                            </TabControl.Background>
+                            <TabItem Header="Information">
+                                <Grid>
+                                    <Label Content="Type:" Margin="0,5,0,0"/>
+                                    <TextBlock x:Name="itemType" Text="empty" Margin="40,5,0,0"/>
+
+                                    <Label Content="Path:" Margin="0,20,0,0"/>
+                                    <TextBlock x:Name="itemPath" Text="empty" Margin="40,20,0,0"/>
+                                </Grid>
+                            </TabItem>
+                            <TabItem Header="Viewer">
+                                <Grid>
+                                    <RichTextBox x:Name="content" Foreground="White" Background="{StaticResource GridToolsBackground}" BorderThickness="0" IsReadOnly="True"/>
+                                </Grid>
+                            </TabItem>
+                        </TabControl>
                     </Border>
                 </Grid>
 
@@ -134,7 +152,7 @@
 
                 <Grid Grid.Column="1">
                     <Grid Margin="5,6,0,0">
-                        <TextBlock Text="Waiting" Foreground="White"/>
+                        <TextBlock x:Name="log" Text="Waiting" Foreground="White"/>
                     </Grid>
                 </Grid>
 
