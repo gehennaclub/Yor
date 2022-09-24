@@ -75,6 +75,7 @@ namespace Yor
         {
             Models.TreeView.Item item = null;
             string empty = "empty";
+            string unrawable = "For performance reasons only utf-8 readable files can be displayed";
             string data = null;
 
             if (tree.SelectedItem != null)
@@ -83,14 +84,23 @@ namespace Yor
                 logger.Record("Analysing selected item");
 
                 itemType.Text = $"{item.Type}";
-                itemPath.Text = item.Path;
+                itemPath.Text = item.Name;
+                itemFormat.Text = $"{item.Format}";
                 content.Document.Blocks.Clear();
                 if (item.Type == Models.System.File.Format.file)
                 {
-                    data = System.IO.File.ReadAllText(item.Path);
-                    content.Document.Blocks.Add(new Paragraph(new Run(data)));
-                    data = null;
-                }
+                    if (Models.Extensions.Manager.Rawable(item.Format) == true)
+                    {
+                        data = System.IO.File.ReadAllText(item.Path);
+                        content.Document.Blocks.Add(new Paragraph(new Run(data)));
+                        data = null;
+                    }
+                    else
+                    {
+                        content.Document.Blocks.Add(new Paragraph(new Run(unrawable)));
+                    }
+                } 
+                
                 logger.Force();
                 logger.Record("Done");
             }

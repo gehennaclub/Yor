@@ -87,6 +87,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Extensions\Manager.cs" />
     <Compile Include="Models\System\File.cs" />
     <Compile Include="Models\Icons\Manager.cs" />
     <Compile Include="Models\Structure\Manager.cs" />

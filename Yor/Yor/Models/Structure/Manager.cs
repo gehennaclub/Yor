@@ -26,6 +26,7 @@ namespace Yor.Models.Structure
                     Name = name,
                     Path = file,
                     Image = Icons.Manager.File(extension),
+                    Format = Extensions.Manager.Get(extension),
                     Type = System.File.Format.file,
                     Items = null
                 });
@@ -48,6 +49,7 @@ namespace Yor.Models.Structure
                     Name = name,
                     Path = file,
                     Image = Icons.Manager.Folder(name),
+                    Format = Extensions.Manager.Get("folder"),
                     Type = System.File.Format.folder,
                     Items = Build(file)
                 });

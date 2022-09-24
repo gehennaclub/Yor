@@ -3,5 +3,5 @@
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <Brush x:Key="GridMainBackground">#21252B</Brush>
     <Brush x:Key="GridToolsBackground">#282C34</Brush>
-    <Brush x:Key="GridBorders">#3D3D3D</Brush>
+    <Brush x:Key="GridBorders">#4C4F62</Brush>
 </ResourceDictionary>
