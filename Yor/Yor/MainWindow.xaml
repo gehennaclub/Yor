@@ -14,7 +14,7 @@
         Width="1100"
         Title="Yor"
         Background="#2A2B34"
-        Icon="/Assets/Logo.png"
+        Icon="/Assets/logo_0.png"
         WindowStartupLocation="CenterScreen"
         Loaded="AdonisWindow_Loaded">
 
