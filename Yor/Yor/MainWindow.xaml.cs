@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO.Packaging;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading;
@@ -27,11 +28,12 @@ namespace Yor
     /// </summary>
     public partial class MainWindow : AdonisWindow
     {
-        private Thread thread { get; set; }
+        private List<Thread> threads { get; set; }
         private Thread input { get; set; }
         private ViewModels.Bar bar { get; set; }
         private Models.Logger.Manager logger { get; set; }
         private string root { get; set; }
+        private ViewModels.Viewer viewer { get; set; }
 
         public MainWindow()
         {
@@ -43,6 +45,9 @@ namespace Yor
         {
             bar = new ViewModels.Bar(os_version);
             logger = new Models.Logger.Manager(log);
+            //viewer = new Viewer(new FileInformations(itemType, itemPath, itemFormat, itemMagic), tree, logger, content);
+            viewer = new Viewer(new FileInformations(itemType, itemPath, itemFormat), tree, logger, content, contentHex);
+            threads = new List<Thread>();
             root = ".";
         }
 
@@ -73,65 +78,29 @@ namespace Yor
 
         private void Viewer()
         {
-            Models.TreeView.Item item = null;
-            string empty = "empty";
-            string unrawable = "For performance reasons only utf-8 readable files can be displayed";
-            string data = null;
+            viewer.Set();
+        }
 
-            if (tree.SelectedItem != null)
+        private async Task Queue(ThreadStart function)
+        {
+            await Task.Run(() =>
             {
-                item = tree.SelectedItem as Models.TreeView.Item;
-                logger.Record("Analysing selected item");
-
-                itemType.Text = $"{item.Type}";
-                itemPath.Text = item.Name;
-                itemFormat.Text = $"{item.Format}";
-                content.Document.Blocks.Clear();
-                if (item.Type == Models.System.File.Format.file)
-                {
-                    if (Models.Extensions.Manager.Rawable(item.Format) == true)
-                    {
-                        data = System.IO.File.ReadAllText(item.Path);
-                        content.Document.Blocks.Add(new Paragraph(new Run(data)));
-                        data = null;
-                    }
-                    else
-                    {
-                        content.Document.Blocks.Add(new Paragraph(new Run(unrawable)));
-                    }
-                } 
-                
-                logger.Force();
-                logger.Record("Done");
-            }
-            else
-            {
-                logger.Record("No item selected");
-                itemType.Text = empty;
-                itemPath.Text = empty;
-            }
+                threads.Add(new Thread(function));
+                threads[threads.Count() - 1].Start();
+            });
         }
 
-        private void Analyse()
+        private async void AdonisWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            Models.Threads.Manager.Edit(Viewer);
+            await Queue(Build);
         }
 
-        private void AdonisWindow_Loaded(object sender, RoutedEventArgs e)
+        private async void tree_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            thread = new Thread(Build);
-
-            thread.Start();
+            await Queue(viewer.Set);
         }
 
-        private void tree_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
-        {
-            thread = new Thread(Analyse);
-            
-            thread.Start();
-        }
-
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private async void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             Ookii.Dialogs.Wpf.VistaFolderBrowserDialog vistaFolderBrowserDialog = new Ookii.Dialogs.Wpf.VistaFolderBrowserDialog();
 
@@ -140,8 +109,7 @@ namespace Yor
             if (vistaFolderBrowserDialog.SelectedPath != String.Empty)
             {
                 root = vistaFolderBrowserDialog.SelectedPath;
-                thread = new Thread(Build);
-                thread.Start();
+                await Queue(Build);
             }
         }
 

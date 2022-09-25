@@ -88,6 +88,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Extensions\Manager.cs" />
+    <Compile Include="Models\Structure\Magic.cs" />
     <Compile Include="Models\System\File.cs" />
     <Compile Include="Models\Icons\Manager.cs" />
     <Compile Include="Models\Structure\Manager.cs" />
@@ -96,10 +97,13 @@
     <Compile Include="Models\TreeView\Item.cs" />
     <Compile Include="Models\Logger\Manager.cs" />
     <Compile Include="ViewModels\Bar.cs" />
+    <Compile Include="ViewModels\FileInformations.cs" />
+    <Compile Include="ViewModels\Threads.cs" />
     <Compile Include="ViewModels\System.cs" />
     <Compile Include="Views\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\Viewer.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

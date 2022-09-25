@@ -12,6 +12,8 @@
         mc:Ignorable="d"
         Height="700"
         Width="1100"
+        MinHeight="700"
+        MinWidth="1100"
         Title="Yor"
         Background="#2A2B34"
         Icon="/Assets/logo_0.png"
@@ -76,7 +78,7 @@
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Row="0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="4*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
@@ -108,6 +110,8 @@
                                     <TextBlock x:Name="itemType" Text="empty" Margin="50,20,0,0"/>
                                     <Label Content="Format:" Margin="0,35,0,0"/>
                                     <TextBlock x:Name="itemFormat" Text="empty" Margin="50,35,0,0"/>
+                                    <!--<Label Content="Magic:" Margin="0,50,0,0"/>
+                                    <TextBlock x:Name="itemMagic" Text="empty" Margin="50,50,0,0"/>-->
                                 </Grid>
                             </TabItem>
                         </TabControl>
@@ -125,23 +129,46 @@
                                 <ImageBrush ImageSource="/Assets/Background/background_7.png" Stretch="UniformToFill" AlignmentX="Left" AlignmentY="Center"/>
                             </TabControl.Background>
                             <TabItem Header="Information">
-                            <StackPanel>
-                                <Label Content="Welcome in Yor" FontSize="20" HorizontalContentAlignment="Center" Margin="0,100,0,0"/>
-                                <Label Content="Please note that this Yor version is a pre release version" HorizontalContentAlignment="Center" Margin="0,30,0,0"/>
-                                <Label Content="The interface and the tools implemented will change in the future versions" HorizontalContentAlignment="Center" Margin="0,0,0,0"/>
-                                <Label Content="If you have a bug, an issue, a crash, some questions, or you just want to follow" HorizontalContentAlignment="Center" Margin="0,0,0,0"/>
-                                <Label Content="the development process, you can simply join the discord"  HorizontalContentAlignment="Center" Margin="0,0,0,0"/>
-                                <Label Content="Discord: https://discord.gg/RBhWszbRuU" HorizontalContentAlignment="Center" Margin="0,50,0,0"/>
-                                <Label Content="Have fun" HorizontalContentAlignment="Center" Margin="0,0,0,0"/>
-                                <Label Content="neo" HorizontalContentAlignment="Center" Margin="0,50,0,0"/>
-                            </StackPanel>
+                                <StackPanel>
+                                    <Label Content="Welcome in Yor" FontSize="20" HorizontalContentAlignment="Center" Margin="0,100,0,0"/>
+                                    <Label Content="Please note that this Yor version is a pre release version" HorizontalContentAlignment="Center" Margin="0,30,0,0"/>
+                                    <Label Content="The interface and the tools implemented will change in the future versions" HorizontalContentAlignment="Center" Margin="0,0,0,0"/>
+                                    <Label Content="If you have a bug, an issue, a crash, some questions, or you just want to follow" HorizontalContentAlignment="Center" Margin="0,0,0,0"/>
+                                    <Label Content="the development process, you can simply join the discord"  HorizontalContentAlignment="Center" Margin="0,0,0,0"/>
+                                    <Label Content="Discord: https://discord.gg/RBhWszbRuU" HorizontalContentAlignment="Center" Margin="0,50,0,0"/>
+                                    <Label Content="Have fun" HorizontalContentAlignment="Center" Margin="0,0,0,0"/>
+                                    <Label Content="neo" HorizontalContentAlignment="Center" Margin="0,50,0,0"/>
+                                </StackPanel>
                             </TabItem>
                             <TabItem Header="Raw">
                                 <Grid>
                                     <RichTextBox x:Name="content" Foreground="White" Background="{StaticResource GridToolsBackground}" BorderThickness="0" IsReadOnly="True"/>
                                 </Grid>
                             </TabItem>
-                        </TabControl>
+                        <TabItem Header="Assembly">
+                            <Grid>
+                                <RichTextBox x:Name="contentHex" Foreground="White" Background="{StaticResource GridToolsBackground}" BorderThickness="0" IsReadOnly="True"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="API">
+                            <Grid>
+                                <StackPanel>
+                                    <Label Content="Host:" Margin="10,20,0,0"/>
+                                    <TextBox Margin="50,-20,0,0" Width="500" HorizontalAlignment="Left"/>
+                                    <ComboBox x:Name="methods" Margin="550,-24,0,0" Width="100" HorizontalAlignment="Left">
+                                        <ComboBox.Items>
+                                            <ComboBoxItem Name="GET" Content="GET"/>
+                                            <ComboBoxItem Name="POST" Content="POST"/>
+                                            <ComboBoxItem Name="PUT" Content="PUT"/>
+                                            <ComboBoxItem Name="DELETE" Content="DELETE"/>
+                                        </ComboBox.Items>
+                                    </ComboBox>
+                                    <Button Content="Request" Margin="0,-24,0,0" Width="100" HorizontalAlignment="Right"/>
+                                    <RichTextBox Margin="0,20,0,0" Height="200" Foreground="White" Background="{StaticResource GridToolsBackground}" BorderBrush="{StaticResource GridBorders}"/>
+                                </StackPanel>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
                     <!--</Border>-->
                 </Grid>
 

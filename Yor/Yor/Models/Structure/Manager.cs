@@ -27,6 +27,8 @@ namespace Yor.Models.Structure
                     Path = file,
                     Image = Icons.Manager.File(extension),
                     Format = Extensions.Manager.Get(extension),
+                    //Magic = Magic.Get(file),
+                    Magic = "disabled",
                     Type = System.File.Format.file,
                     Items = null
                 });
@@ -50,6 +52,7 @@ namespace Yor.Models.Structure
                     Path = file,
                     Image = Icons.Manager.Folder(name),
                     Format = Extensions.Manager.Get("folder"),
+                    Magic = "disabled",
                     Type = System.File.Format.folder,
                     Items = Build(file)
                 });

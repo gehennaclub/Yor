@@ -51,6 +51,7 @@ namespace Yor.Models.TreeView
         public string Name { get; set; }
         public string Path { get; set; }
         public string Image { get; set; }
+        public string Magic { get; set; }
         public Models.System.File.Format Type { get; set; }
         public Extensions.Manager.Format Format { get; set; }
         public List<Item> Items { get; set; }
