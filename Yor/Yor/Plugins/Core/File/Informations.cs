@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -16,6 +17,7 @@ namespace Yor.Plugins.Core.File
         private string value_type { get; set; }
         private string value_path { get; set; }
         private string value_format { get; set; }
+        public static new string name = "Core.File.Informations";
 
         public Informations(MainWindow mainWindow, string name) : base(mainWindow, name)
         {

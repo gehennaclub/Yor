@@ -17,6 +17,7 @@ namespace Yor.Models.Logger
         private string folder { get; set; }
         private string message { get; set; }
         private string name { get; set; }
+        private List<Action> queue { get; set; }
 
         public Manager(TextBlock block, string name)
         {
@@ -33,6 +34,7 @@ namespace Yor.Models.Logger
             folder = "Logs";
 
             logs = new List<string>();
+            queue = new List<Action>();
         }
 
         private void Write()

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Yor.Models.System;
@@ -9,7 +10,8 @@ namespace Yor.Plugins.Core.Bar
 {
     public class OS : BasePlugin
     {
-        public Models.System.OS os { get; set; }
+        private Models.System.OS os { get; set; }
+        public static new string name = "Core.Bar.OS";
 
         public OS(MainWindow mainWindow, string name) : base(mainWindow, name)
         {

@@ -49,6 +49,7 @@ namespace Yor.ViewModels
                 await Task.Run(() => Models.Threads.Manager.Edit(job));
             }
             queue.Clear();
+
             logger.Record("queue completed");
         }
     }

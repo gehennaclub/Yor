@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
@@ -12,12 +13,14 @@ namespace Yor.Plugins.Core.Tree
 {
     public class Items : BasePlugin
     {
+        public static new string name = "Core.Tree.Items";
+
         public Items(MainWindow mainWindow, string name) : base(mainWindow, name)
         {
             
         }
 
-        private async void _Load()
+        private void _Load()
         {
             logger.Record("Searching for game files");
             List<Models.TreeView.Item> items = Models.Structure.Manager.Build(mainWindow.root);

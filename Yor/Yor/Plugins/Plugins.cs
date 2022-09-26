@@ -16,10 +16,10 @@ namespace Yor.Plugins
 
         public Plugins(MainWindow mainWindow)
         {
-            CoreBarOs = new Core.Bar.OS(mainWindow, MethodBase.GetCurrentMethod().Name);
-            CoreEditorRaw = new Core.Editor.Raw(mainWindow, MethodBase.GetCurrentMethod().Name);
-            CoreFileInformations = new Core.File.Informations(mainWindow, MethodBase.GetCurrentMethod().Name);
-            CoreTreeItems = new Core.Tree.Items(mainWindow, MethodBase.GetCurrentMethod().Name);
+            CoreBarOs = new Core.Bar.OS(mainWindow, Core.Bar.OS.name);
+            CoreEditorRaw = new Core.Editor.Raw(mainWindow, Core.Editor.Raw.name);
+            CoreFileInformations = new Core.File.Informations(mainWindow, Core.File.Informations.name);
+            CoreTreeItems = new Core.Tree.Items(mainWindow, Core.Tree.Items.name);
         }
     }
 }

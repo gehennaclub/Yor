@@ -10,9 +10,9 @@ namespace Yor.ViewModels
 {
     public class MainViewModel : BaseView
     {
-        private MainWindow mainWindow { get; set; }
+        private new MainWindow mainWindow { get; set; }
         public Plugins.Plugins plugins { get; set; }
-        private string name { get; set; }
+        private new string name { get; set; }
 
         public MainViewModel(MainWindow window, string name) : base(window, name)
         {
