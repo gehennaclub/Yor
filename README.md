@@ -7,5 +7,18 @@
   </a>
 </p>
 
-### Work in progress
+## Features
+- [X] Configuration file Editor
+- [X] Game project hierarchy
+- [X] File information
+
+## Todo
+- [ ] Savefile Editor
+- [ ] Savefile Encoder
+- [ ] Savefile Decoder
+- [ ] Assembly reader
+- [ ] Configuration builder
+
+
+
 
