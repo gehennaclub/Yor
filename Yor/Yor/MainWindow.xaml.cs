@@ -49,6 +49,11 @@ namespace Yor
             await mainViewModel.WindowLoaded();
         }
 
+        private async void RefreshClick(object sender, RoutedEventArgs e)
+        {
+            await mainViewModel.WindowLoaded();
+        }
+
         private async void tree_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             await mainViewModel.plugins.CoreEditorRaw.Load();

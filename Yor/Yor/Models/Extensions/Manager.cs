@@ -20,7 +20,8 @@ namespace Yor.Models.Extensions
             resource,
             obj,
             folder,
-            unknown
+            unknown,
+            custom
         }
 
         private static Dictionary<List<string>, Format> mapping = new Dictionary<List<string>, Format>()
@@ -112,6 +113,13 @@ namespace Yor.Models.Extensions
                     ".resS"
                 },
                 Format.resource
+            },
+            {
+                new List<string>()
+                {
+                    ".yl"
+                },
+                Format.custom
             }
         };
 
@@ -125,6 +133,7 @@ namespace Yor.Models.Extensions
             { Format.resource, false },
             { Format.obj, false },
             { Format.folder, false },
+            { Format.custom, true },
             { Format.unknown, false }
         };
 

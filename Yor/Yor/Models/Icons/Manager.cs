@@ -108,6 +108,13 @@ namespace Yor.Models.Icons
                     ".resS"
                 },
                 "/Assets/Icons/Files/Windows/res.png"
+            },
+            {
+                new List<string>()
+                {
+                    ".yl"
+                },
+                "/Assets/Icons/Files/Windows/yl.png"
             }
         };
 
