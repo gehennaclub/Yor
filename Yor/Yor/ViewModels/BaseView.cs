@@ -38,6 +38,8 @@ namespace Yor.ViewModels
             await Wait();
 
             logger.Record($"action {action.Method.Name} runned");
+            logger.Record("Done");
+            logger.Force();
         }
 
         private async Task Wait()

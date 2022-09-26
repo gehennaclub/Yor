@@ -17,7 +17,7 @@ namespace Yor.Plugins.Core.File
         private string value_type { get; set; }
         private string value_path { get; set; }
         private string value_format { get; set; }
-        public static new string name = "Core.File.Informations";
+        public static readonly new string name = "Core.File.Informations";
 
         public Informations(MainWindow mainWindow, string name) : base(mainWindow, name)
         {

@@ -36,8 +36,10 @@ namespace Yor.Plugins.Core.Editor
                 logger.Record("Analysing selected item");
                 item = (Models.TreeView.Item)mainWindow.tree.SelectedItem;
                 await informations.Set($"{item.Type}", item.Name, $"{item.Format}");
-                mainWindow.content.Document.Blocks.Clear();
-                mainWindow.contentHex.Document.Blocks.Clear();
+                if (mainWindow.content.Document.Blocks.Count() > 0)
+                {
+                    mainWindow.content.Document.Blocks.Clear();
+                }
                 if (item.Type == Models.System.File.Format.file)
                 {
                     if (Models.Extensions.Manager.Rawable(item.Format) == true)
@@ -52,7 +54,6 @@ namespace Yor.Plugins.Core.Editor
                     }
                 }
 
-                logger.Force();
                 logger.Record("Done");
             }
             else
@@ -60,6 +61,7 @@ namespace Yor.Plugins.Core.Editor
                 logger.Record("No item selected");
                 await informations.Set(empty, empty, empty);
             }
+            logger.Force();
         }
 
         public async Task Load()

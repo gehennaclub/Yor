@@ -54,7 +54,7 @@
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Savefile">
-                <MenuItem Header="Editor">
+                <MenuItem Header="Editor" Click="ClickMenuSavefile">
                     <MenuItem.Icon>
                         <Image Source="/Assets/Icons/Menu/editor.png"/>
                     </MenuItem.Icon>
@@ -243,7 +243,7 @@
 
                 <Grid Grid.Column="3">
                     <Grid Margin="5,5,5,5">
-                        <TextBlock x:Name="os_version"/>
+                        <TextBlock x:Name="os_version" FontWeight="Bold"/>
                     </Grid>
                 </Grid>
             </Grid>

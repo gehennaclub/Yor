@@ -29,6 +29,7 @@ namespace Yor
     public partial class MainWindow : AdonisWindow
     {
         public string root { get; set; }
+        public string savefile { get; set; }
         private MainViewModel mainViewModel { get; set; }
 
         public MainWindow()
@@ -61,15 +62,7 @@ namespace Yor
 
         private async void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            Ookii.Dialogs.Wpf.VistaFolderBrowserDialog vistaFolderBrowserDialog = new Ookii.Dialogs.Wpf.VistaFolderBrowserDialog();
-
-            vistaFolderBrowserDialog.ShowDialog();
-
-            if (vistaFolderBrowserDialog.SelectedPath != String.Empty)
-            {
-                root = vistaFolderBrowserDialog.SelectedPath;
-                await mainViewModel.plugins.CoreTreeItems.Load();
-            }
+            await mainViewModel.ClickMenuDirectory();
         }
 
         private void MenuItem_Click_About(object sender, RoutedEventArgs e)
@@ -82,6 +75,11 @@ namespace Yor
         private async void EditorApply(object sender, RoutedEventArgs e)
         {
             await mainViewModel.plugins.CoreEditorEdit.Apply(((Models.TreeView.Item)tree.SelectedItem).Path, content.Document);
+        }
+
+        private async void ClickMenuSavefile(object sender, RoutedEventArgs e)
+        {
+            await mainViewModel.ClickMenuSavefile();
         }
     }
 }
