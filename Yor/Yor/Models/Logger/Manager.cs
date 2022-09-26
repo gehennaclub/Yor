@@ -16,10 +16,12 @@ namespace Yor.Models.Logger
         private string session { get; set; }
         private string folder { get; set; }
         private string message { get; set; }
+        private string name { get; set; }
 
-        public Manager(TextBlock block)
+        public Manager(TextBlock block, string name)
         {
             this.block = block;
+            this.name = name;
 
             Initialize();
         }
@@ -27,7 +29,7 @@ namespace Yor.Models.Logger
         private void Initialize()
         {
             limit = 10;
-            session = $"{DateTime.Now.ToString("ddMMyyhh")}.yl";
+            session = $"{DateTime.Now.ToString("ddMMyyhh")}.{name}.yl";
             folder = "Logs";
 
             logs = new List<string>();

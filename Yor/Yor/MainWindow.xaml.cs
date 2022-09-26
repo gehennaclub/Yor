@@ -28,12 +28,8 @@ namespace Yor
     /// </summary>
     public partial class MainWindow : AdonisWindow
     {
-        private List<Thread> threads { get; set; }
-        private Thread input { get; set; }
-        private ViewModels.Bar bar { get; set; }
-        private Models.Logger.Manager logger { get; set; }
-        private string root { get; set; }
-        private ViewModels.Viewer viewer { get; set; }
+        public string root { get; set; }
+        private MainViewModel mainViewModel { get; set; }
 
         public MainWindow()
         {
@@ -43,61 +39,19 @@ namespace Yor
 
         private void Initialize()
         {
-            bar = new ViewModels.Bar(os_version);
-            logger = new Models.Logger.Manager(log);
-            //viewer = new Viewer(new FileInformations(itemType, itemPath, itemFormat, itemMagic), tree, logger, content);
-            viewer = new Viewer(new FileInformations(itemType, itemPath, itemFormat), tree, logger, content, contentHex);
-            threads = new List<Thread>();
+            mainViewModel = new MainViewModel(this, "Main");
+
             root = ".";
-        }
-
-        private void Build()
-        {
-            Models.Threads.Manager.Edit(Load);
-        }
-
-        private void Load()
-        {
-            logger.Record("Searching for game files");
-            List<Models.TreeView.Item> items = Models.Structure.Manager.Build(root);
-            logger.Record($"Total files found: '{items.Count()}'");
-
-            if (tree.Items.Count > 0)
-            {
-                tree.Items.Clear();
-            }
-            bar.Refresh();
-            foreach (Models.TreeView.Item item in items)
-            {
-                logger.Record($"File found: '{item.Name}'");
-                tree.Items.Add(item);
-            }
-            logger.Force();
-            logger.Record("Done");
-        }
-
-        private void Viewer()
-        {
-            viewer.Set();
-        }
-
-        private async Task Queue(ThreadStart function)
-        {
-            await Task.Run(() =>
-            {
-                threads.Add(new Thread(function));
-                threads[threads.Count() - 1].Start();
-            });
         }
 
         private async void AdonisWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            await Queue(Build);
+            await mainViewModel.WindowLoaded();
         }
 
         private async void tree_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            await Queue(viewer.Set);
+            await mainViewModel.plugins.CoreEditorRaw.Load();
         }
 
         private async void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -109,7 +63,7 @@ namespace Yor
             if (vistaFolderBrowserDialog.SelectedPath != String.Empty)
             {
                 root = vistaFolderBrowserDialog.SelectedPath;
-                await Queue(Build);
+                await mainViewModel.plugins.CoreTreeItems.Load();
             }
         }
 

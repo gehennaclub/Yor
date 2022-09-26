@@ -9,7 +9,7 @@ namespace Yor.Models.Threads
 {
     public class Manager
     {
-        public static void Edit(ThreadStart action)
+        public static void Edit(Action action)
         {
             App.Current.Dispatcher.Invoke(() =>
             {
