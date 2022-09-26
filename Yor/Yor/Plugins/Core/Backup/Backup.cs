@@ -12,7 +12,6 @@ namespace Yor.Plugins.Core.Backup
     {
         private static readonly new string backupRoot = "Backup";
         private string contentName { get; set; } 
-        private string contentData { get; set; }
         public static readonly new string name = "Core.Backup.Backup";
 
         public Backup(MainWindow mainWindow, string name) : base(mainWindow, name)
@@ -32,13 +31,12 @@ namespace Yor.Plugins.Core.Backup
             {
                 System.IO.File.Delete(full);
             }
-            System.IO.File.WriteAllText(full, contentData);
+            System.IO.File.Copy(contentName, full);
         }
 
-        public async Task Save(string name, string content)
+        public async Task Save(string name)
         {
             this.contentName = name;
-            this.contentData = content;
 
             await Run(_Save);
         }

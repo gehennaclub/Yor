@@ -22,7 +22,8 @@ namespace Yor.Plugins.Core.Editor
 
         private async void _Apply()
         {
-            await CoreBackupBackup.Save(path, content);
+            await CoreBackupBackup.Save(path);
+            System.IO.File.WriteAllText(path, content);
         }
 
         public async Task Apply(string path, FlowDocument content)

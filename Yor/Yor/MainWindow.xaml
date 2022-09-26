@@ -160,8 +160,7 @@
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
                                 <RichTextBox Grid.Row="0" x:Name="content" Foreground="White" Background="{StaticResource GridToolsBackground}" BorderThickness="0" IsReadOnly="False"/>
-                                <Button Grid.Row="1" x:Name="save" Content="Apply" Margin="-300,0,0,0" Width="100" Height="24" Click="EditorApply"/>
-                                <Button Grid.Row="1" x:Name="cancel" Content="Cancel" Margin="300,0,0,0" Width="100" Height="24"/>
+                                <Button Grid.Row="1" x:Name="save" Content="Apply" Width="100" Height="24" Click="EditorApply" HorizontalAlignment="Right"/>
                             </Grid>
                         </TabItem>
                         <TabItem Header="Assembly">
