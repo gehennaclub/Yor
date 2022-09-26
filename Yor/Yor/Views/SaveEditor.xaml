@@ -10,7 +10,7 @@
     MinHeight="700"
     MinWidth="1100"
     Background="#21252B"
-    Icon="/Assets/logo_0.png">
+    Icon="/Assets/logo_0.png" Loaded="AdonisWindow_Loaded">
 
     <adonisControls:AdonisWindow.Resources>
         <ResourceDictionary>
@@ -19,15 +19,19 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </adonisControls:AdonisWindow.Resources>
-    <TabControl Background="{StaticResource GridToolsBackground}" Loaded="TabControl_Loaded">
+    <TabControl Background="{StaticResource GridToolsBackground}">
         <TabItem Header="Information">
-            
+
         </TabItem>
         <TabItem Header="Json">
-
+            <TabControl x:Name="JSONContent" Background="{StaticResource GridToolsBackground}" TabStripPlacement="Left">
+                
+            </TabControl>
         </TabItem>
         <TabItem Header="XML">
+            <TabControl x:Name="XMLContent" Background="{StaticResource GridToolsBackground}">
 
+            </TabControl>
         </TabItem>
     </TabControl>
 </adonisControls:AdonisWindow>

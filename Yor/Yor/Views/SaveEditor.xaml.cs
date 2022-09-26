@@ -36,7 +36,7 @@ namespace Yor.Views
 
         }
 
-        private void TabControl_Loaded(object sender, RoutedEventArgs e)
+        private void AdonisWindow_Loaded(object sender, RoutedEventArgs e)
         {
 
         }
