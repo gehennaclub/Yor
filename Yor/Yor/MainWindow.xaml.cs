@@ -73,5 +73,10 @@ namespace Yor
 
             about.Show();
         }
+
+        private async void EditorApply(object sender, RoutedEventArgs e)
+        {
+            await mainViewModel.plugins.CoreEditorEdit.Apply(((Models.TreeView.Item)tree.SelectedItem).Path, content.Document);
+        }
     }
 }
