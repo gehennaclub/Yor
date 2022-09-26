@@ -137,12 +137,12 @@
 
                 <!-- Editor -->
                 <Grid Grid.Column="1" Margin="2,2,2,2">
-                    <TabControl>
-                        <TabControl.Background>
-                            <ImageBrush ImageSource="/Assets/Background/background_7.png" Stretch="UniformToFill" AlignmentX="Left" AlignmentY="Center"/>
-                        </TabControl.Background>
+                    <TabControl Background="{StaticResource GridToolsBackground}">
                         <TabItem Header="Information">
-                            <StackPanel>
+                            <StackPanel Margin="0,0,0,-8">
+                                <StackPanel.Background>
+                                    <ImageBrush ImageSource="/Assets/Background/background_7.png" Stretch="UniformToFill" AlignmentX="Left" AlignmentY="Center"/>
+                                </StackPanel.Background>
                                 <Label Content="Welcome in Yor" FontSize="20" HorizontalContentAlignment="Center" Margin="0,100,0,0"/>
                                 <Label Content="Please note that this Yor version is a pre release version" HorizontalContentAlignment="Center" Margin="0,30,0,0"/>
                                 <Label Content="The interface and the tools implemented will change in the future versions" HorizontalContentAlignment="Center" Margin="0,0,0,0"/>

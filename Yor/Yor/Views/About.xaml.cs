@@ -29,11 +29,10 @@ namespace Yor.Views
 
         private void Initialize()
         {
-            //version.Text = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            version.Text = "0.0.1";
-            desc.Text = "Yor is currenly in development and has not a single feature implemented\nThe UI and the content will change in future updates";
+            version.Text = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            desc.Text = "Yor is currenly in development\nThe UI and the content will change in future updates";
             author.Text = "Neo: https://github.com/Neotoxic-off";
-            repository.Text = "https://github.com/violetgroup/Yor";
+            repository.Text = "https://github.com/gehennaclub/Yor";
         }
     }
 }
