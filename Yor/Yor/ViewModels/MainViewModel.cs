@@ -31,6 +31,7 @@ namespace Yor.ViewModels
         {
             await plugins.CoreTreeItems.Load();
             await plugins.CoreBarOs.Set();
+            await plugins.CoreBarVersion.Set();
         }
     }
 }

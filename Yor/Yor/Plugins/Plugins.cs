@@ -10,6 +10,7 @@ namespace Yor.Plugins
     public class Plugins
     {
         public Core.Bar.OS CoreBarOs { get; set; }
+        public Core.Bar.Version CoreBarVersion { get; set; }
         public Core.Editor.Raw CoreEditorRaw { get; set; }
         public Core.Editor.Edit CoreEditorEdit { get; set; }
         public Core.File.Informations CoreFileInformations { get; set; }
@@ -19,6 +20,7 @@ namespace Yor.Plugins
         public Plugins(MainWindow mainWindow)
         {
             CoreBarOs = new Core.Bar.OS(mainWindow, Core.Bar.OS.name);
+            CoreBarVersion = new Core.Bar.Version(mainWindow, Core.Bar.Version.name);
             CoreEditorRaw = new Core.Editor.Raw(mainWindow, Core.Editor.Raw.name);
             CoreEditorEdit = new Core.Editor.Edit(mainWindow, Core.Editor.Edit.name);
             //CoreFileInformations = new Core.File.Informations(mainWindow, Core.File.Informations.name);

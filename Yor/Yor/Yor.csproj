@@ -101,6 +101,7 @@
     <Compile Include="Models\Logger\Manager.cs" />
     <Compile Include="Plugins\BasePlugin.cs" />
     <Compile Include="Plugins\Core\Backup\Backup.cs" />
+    <Compile Include="Plugins\Core\Bar\Version.cs" />
     <Compile Include="Plugins\Core\Editor\Edit.cs" />
     <Compile Include="Plugins\Core\Editor\Raw.cs" />
     <Compile Include="Plugins\Core\File\Informations.cs" />
@@ -239,6 +240,7 @@
     <Resource Include="Assets\Icons\Menu\encode.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Plugins\Core\Client\" />
     <Folder Include="Plugins\Core\Savefile\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

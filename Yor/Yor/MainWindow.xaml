@@ -101,8 +101,19 @@
 
                     <!-- Treeview -->
                     <Grid Grid.Column="0" Margin="2,2,2,2" Background="{StaticResource GridToolsBackground}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Separator Grid.Column="0" VerticalAlignment="Top" Margin="0,19,0,0" Background="{StaticResource GridBorders}"/>
+                            <Label Grid.Column="1" Content="Directory" Margin="0,10,0,0" HorizontalAlignment="Center"/>
+                            <Separator Grid.Column="2" VerticalAlignment="Top" Margin="0,19,0,0" Background="{StaticResource GridBorders}"/>
+                        </Grid>
                         <Border BorderBrush="{StaticResource GridBorders}" BorderThickness="1">
-                            <ScrollViewer Height="Auto" CanContentScroll="True" VerticalScrollBarVisibility="Auto">
+                            <ScrollViewer CanContentScroll="True" VerticalScrollBarVisibility="Auto" Margin="0,30,0,0">
                                 <TreeView Name="tree" SelectedItemChanged="tree_SelectedItemChanged">
                                     <TreeView.ItemTemplate>
                                         <HierarchicalDataTemplate DataType="{x:Type tree:Item}" ItemsSource="{Binding Items}">
@@ -144,13 +155,14 @@
                                     <ImageBrush ImageSource="/Assets/Background/background_7.png" Stretch="UniformToFill" AlignmentX="Left" AlignmentY="Center"/>
                                 </StackPanel.Background>
                                 <Label Content="Welcome in Yor" FontSize="20" HorizontalContentAlignment="Center" Margin="0,100,0,0"/>
-                                <Label Content="Please note that this Yor version is a pre release version" HorizontalContentAlignment="Center" Margin="0,30,0,0"/>
-                                <Label Content="The interface and the tools implemented will change in the future versions" HorizontalContentAlignment="Center" Margin="0,0,0,0"/>
-                                <Label Content="If you have a bug, an issue, a crash, some questions, or you just want to follow" HorizontalContentAlignment="Center" Margin="0,0,0,0"/>
-                                <Label Content="the development process, you can simply join the discord"  HorizontalContentAlignment="Center" Margin="0,0,0,0"/>
-                                <Label Content="Discord: https://discord.gg/RBhWszbRuU" HorizontalContentAlignment="Center" Margin="0,50,0,0"/>
-                                <Label Content="Have fun" HorizontalContentAlignment="Center" Margin="0,0,0,0"/>
-                                <Label Content="neo" HorizontalContentAlignment="Center" Margin="0,50,0,0"/>
+                                <Label Content="Please note that this Yor version is a pre release version" HorizontalContentAlignment="Center" Margin="0,30,0,0" FontWeight="Normal"/>
+                                <Label Content="The interface and the tools implemented will change in the future versions" HorizontalContentAlignment="Center" Margin="0,0,0,0" FontWeight="Normal"/>
+                                <Label Content="If you have a bug, an issue, a crash, some questions, or you just want to follow" HorizontalContentAlignment="Center" Margin="0,0,0,0" FontWeight="Normal"/>
+                                <Label Content="the development process, you can simply join the discord."  HorizontalContentAlignment="Center" Margin="0,0,0,0" FontWeight="Normal"/>
+                                <Label Content="Yor is open source, so don't waste your time reversing it."  HorizontalContentAlignment="Center" Margin="0,0,0,0" FontWeight="Normal"/>
+                                <Label Content="Discord: https://discord.gg/RBhWszbRuU" HorizontalContentAlignment="Center" Margin="0,50,0,0" FontWeight="Normal"/>
+                                <Label Content="Have fun" HorizontalContentAlignment="Center" Margin="0,0,0,0" FontWeight="Normal"/>
+                                <Label Content="neo" HorizontalContentAlignment="Center" Margin="0,50,0,0" FontWeight="Normal"/>
                             </StackPanel>
                         </TabItem>
                         <TabItem Header="Editor">
@@ -159,7 +171,9 @@
                                     <RowDefinition Height="15*"/>
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
-                                <RichTextBox Grid.Row="0" x:Name="content" Foreground="White" Background="{StaticResource GridToolsBackground}" BorderThickness="0" IsReadOnly="False"/>
+                                <ScrollViewer CanContentScroll="True" VerticalScrollBarVisibility="Auto">
+                                    <RichTextBox Grid.Row="0" x:Name="content" Foreground="White" Background="{StaticResource GridToolsBackground}" BorderThickness="0" IsReadOnly="False"/>
+                                </ScrollViewer>
                                 <Button Grid.Row="1" x:Name="save" Content="Apply" Width="100" Height="24" Click="EditorApply" HorizontalAlignment="Right"/>
                             </Grid>
                         </TabItem>
@@ -182,7 +196,8 @@
                                         </ComboBox.Items>
                                     </ComboBox>
                                     <Button Content="Request" Margin="0,-24,0,0" Width="100" HorizontalAlignment="Right"/>
-                                    <RichTextBox Margin="0,20,0,0" Height="200" Foreground="White" Background="{StaticResource GridToolsBackground}" BorderBrush="{StaticResource GridBorders}"/>
+
+                                    <RichTextBox x:Name="Result" Height="400" Margin="0,20,0,0" Foreground="White" Background="{StaticResource GridToolsBackground}" BorderBrush="{StaticResource GridBorders}"/>
                                 </StackPanel>
                             </Grid>
                         </TabItem>
@@ -198,8 +213,9 @@
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="3*"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
                 <Grid Grid.Column="0">
@@ -215,7 +231,13 @@
                 </Grid>
 
                 <Grid Grid.Column="2">
-                    <Grid Width="20" Height="20" Margin="5,5,5,5">
+                    <Grid Margin="5,5,5,5">
+                        <TextBlock x:Name="yor_version"/>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Column="3">
+                    <Grid Margin="5,5,5,5">
                         <TextBlock x:Name="os_version"/>
                     </Grid>
                 </Grid>
