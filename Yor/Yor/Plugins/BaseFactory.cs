@@ -20,6 +20,14 @@ namespace Yor.Plugins.Core
         {
             this.plugins = plugins;
         }
+        
+        public BasePlugin Search(BasePlugin item)
+        {
+            return (plugins[plugins.IndexOf(item)]);
+
+
+
+        }
 
         public override async Task Load()
         {
