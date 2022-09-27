@@ -101,8 +101,11 @@
     <Compile Include="Models\Logger\Manager.cs" />
     <Compile Include="Plugins\BasePlugin.cs" />
     <Compile Include="Plugins\Core\Backup\Backup.cs" />
+    <Compile Include="Plugins\Core\Bar\Factory.cs" />
     <Compile Include="Plugins\Core\Bar\Version.cs" />
+    <Compile Include="Plugins\BaseFactory.cs" />
     <Compile Include="Plugins\Core\Editor\Edit.cs" />
+    <Compile Include="Plugins\Core\Editor\Factory.cs" />
     <Compile Include="Plugins\Core\Editor\Raw.cs" />
     <Compile Include="Plugins\Core\File\Informations.cs" />
     <Compile Include="Plugins\Core\Bar\OS.cs" />

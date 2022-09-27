@@ -38,19 +38,28 @@ namespace Yor.Plugins.Core.Editor
                 await informations.Set($"{item.Type}", item.Name, $"{item.Format}");
                 if (mainWindow.content.Document.Blocks.Count() > 0)
                 {
+                    logger.Record($"cleanning previous blocks");
                     mainWindow.content.Document.Blocks.Clear();
+                    logger.Record($"previous blocks cleanned");
                 }
                 if (item.Type == Models.System.File.Format.file)
                 {
                     if (Models.Extensions.Manager.Rawable(item.Format) == true)
                     {
+                        logger.Record($"loading raw");
+                        logger.Record($"reading raw data");
                         data = System.IO.File.ReadAllText(item.Path);
+                        logger.Record($"raw data read");
+                        logger.Record($"adding data to block");
                         mainWindow.content.Document.Blocks.Add(new Paragraph(new Run(data)));
+                        logger.Record($"block added");
                         data = null;
                     }
                     else
                     {
+                        logger.Record($"loading unrawable");
                         mainWindow.content.Document.Blocks.Add(new Paragraph(new Run(unrawable)));
+                        logger.Record($"unrawable loaded");
                     }
                 }
 
@@ -64,12 +73,7 @@ namespace Yor.Plugins.Core.Editor
             logger.Force();
         }
 
-        public async Task Load()
-        {
-            await Run(_Load);
-        }
-
-        public async Task ReLoad()
+        public override async Task Load()
         {
             await Run(_Load);
         }

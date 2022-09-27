@@ -18,11 +18,11 @@ namespace Yor.Plugins.Core.Bar
             Initialize();
         }
 
-        private void Initialize()
+        private async void Initialize()
         {
             os = new Models.System.OS();
 
-            Load();
+            await Load();
         }
 
         private void _Load()
@@ -45,12 +45,12 @@ namespace Yor.Plugins.Core.Bar
             mainWindow.os_version.Text = $"{os.version}";
         }
 
-        public async Task Set()
+        public override async Task Set()
         {
             await this.Run(_Set);
         }
 
-        private async void Load()
+        public override async Task Load()
         {
             await this.Run(_Load);
         }

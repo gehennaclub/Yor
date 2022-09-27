@@ -22,8 +22,10 @@ namespace Yor.Plugins.Core.Editor
 
         private async void _Apply()
         {
+            logger.Record($"applying '{path}' changes");
             await CoreBackupBackup.Save(path);
             System.IO.File.WriteAllText(path, content);
+            logger.Record("changes applied");
         }
 
         public async Task Apply(string path, FlowDocument content)

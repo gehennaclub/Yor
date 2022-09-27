@@ -12,5 +12,15 @@ namespace Yor.Plugins
         {
 
         }
+
+        public virtual async Task Load()
+        {
+            // Function to override by plugin's function
+        }
+
+        public virtual async Task Set()
+        {
+            // Function to override by plugin's function
+        }
     }
 }

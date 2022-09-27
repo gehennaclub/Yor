@@ -9,20 +9,16 @@ namespace Yor.Plugins
 {
     public class Plugins
     {
-        public Core.Bar.OS CoreBarOs { get; set; }
-        public Core.Bar.Version CoreBarVersion { get; set; }
-        public Core.Editor.Raw CoreEditorRaw { get; set; }
-        public Core.Editor.Edit CoreEditorEdit { get; set; }
+        public Core.Bar.Factory Bar { get; set; }
+        public Core.Editor.Factory Editor { get; set; }
         public Core.File.Informations CoreFileInformations { get; set; }
         public Core.Tree.Items CoreTreeItems { get; set; }
         public Core.Backup.Backup CoreBackupBackup { get; set; }
 
         public Plugins(MainWindow mainWindow)
         {
-            CoreBarOs = new Core.Bar.OS(mainWindow, Core.Bar.OS.name);
-            CoreBarVersion = new Core.Bar.Version(mainWindow, Core.Bar.Version.name);
-            CoreEditorRaw = new Core.Editor.Raw(mainWindow, Core.Editor.Raw.name);
-            CoreEditorEdit = new Core.Editor.Edit(mainWindow, Core.Editor.Edit.name);
+            Bar = new Core.Bar.Factory(mainWindow, Core.Bar.Factory.name);
+            Editor = new Core.Editor.Factory(mainWindow, Core.Bar.Factory.name);
             //CoreFileInformations = new Core.File.Informations(mainWindow, Core.File.Informations.name);
             CoreTreeItems = new Core.Tree.Items(mainWindow, Core.Tree.Items.name);
             //CoreBackupBackup = new Core.Backup.Backup(mainWindow, Core.Backup.Backup.name);

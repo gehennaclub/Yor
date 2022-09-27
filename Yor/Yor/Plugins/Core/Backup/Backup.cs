@@ -10,8 +10,8 @@ namespace Yor.Plugins.Core.Backup
 {
     public class Backup : BasePlugin
     {
-        private static readonly new string backupRoot = "Backup";
         private string contentName { get; set; } 
+        private static readonly string backupRoot = "Backup";
         public static readonly new string name = "Core.Backup.Backup";
 
         public Backup(MainWindow mainWindow, string name) : base(mainWindow, name)

@@ -39,12 +39,7 @@ namespace Yor.Plugins.Core.Tree
             logger.Record("Done");
         }
 
-        public async Task Load()
-        {
-            await Run(_Load);
-        }
-
-        public async Task ReLoad()
+        public override async Task Load()
         {
             await Run(_Load);
         }

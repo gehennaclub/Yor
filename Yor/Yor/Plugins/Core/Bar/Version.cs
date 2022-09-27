@@ -20,7 +20,7 @@ namespace Yor.Plugins.Core.Bar
             mainWindow.yor_version.Text = $"{Assembly.GetExecutingAssembly().GetName().Version}";
         }
 
-        public async Task Set()
+        public override async Task Set()
         {
             await this.Run(_Set);
         }

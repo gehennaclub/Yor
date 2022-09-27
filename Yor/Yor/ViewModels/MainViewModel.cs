@@ -30,8 +30,7 @@ namespace Yor.ViewModels
         public async Task WindowLoaded()
         {
             await plugins.CoreTreeItems.Load();
-            await plugins.CoreBarOs.Set();
-            await plugins.CoreBarVersion.Set();
+            await plugins.Bar.Set();
         }
 
         public async Task ClickMenuDirectory()
