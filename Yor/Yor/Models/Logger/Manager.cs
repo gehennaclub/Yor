@@ -30,7 +30,7 @@ namespace Yor.Models.Logger
         private void Initialize()
         {
             limit = 10;
-            session = $"{DateTime.Now.ToString("ddMMyyhh")}.{name}.yl";
+            session = $"{DateTime.Now.ToString("ddMMyyhh")}.yl";
             folder = "Logs";
 
             logs = new List<string>();
@@ -68,7 +68,11 @@ namespace Yor.Models.Logger
             {
                 Directory.CreateDirectory(folder);
             }
-            File.AppendAllLines($"{folder}/{session}", logs);
+            if (Directory.Exists($"{folder}/{name}") == false)
+            {
+                Directory.CreateDirectory($"{folder}/{name}");
+            }
+            File.AppendAllLines($"{folder}/{name}/{session}", logs);
             logs.Clear();
         }
     }
