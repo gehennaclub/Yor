@@ -29,7 +29,6 @@ namespace Yor
     public partial class MainWindow : AdonisWindow
     {
         public string root { get; set; }
-        public string savefile { get; set; }
         private MainViewModel mainViewModel { get; set; }
 
         public MainWindow()
@@ -75,11 +74,6 @@ namespace Yor
         private async void EditorApply(object sender, RoutedEventArgs e)
         {
             await mainViewModel.plugins.CoreEditorEdit.Apply(((Models.TreeView.Item)tree.SelectedItem).Path, content.Document);
-        }
-
-        private async void ClickMenuSavefile(object sender, RoutedEventArgs e)
-        {
-            await mainViewModel.ClickMenuSavefile();
         }
     }
 }

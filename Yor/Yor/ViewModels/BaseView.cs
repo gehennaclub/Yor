@@ -8,7 +8,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using Microsoft.Win32;
 using Newtonsoft.Json;
+using Yor.Plugins;
 using static System.Collections.Specialized.BitVector32;
 
 namespace Yor.ViewModels
@@ -19,6 +21,8 @@ namespace Yor.ViewModels
         public List<Action> queue { get; set; }
         public Dictionary<object, Action> actions { get; set; }
         public Models.Logger.Manager logger { get; set; }
+        public Ookii.Dialogs.Wpf.VistaFolderBrowserDialog folderDialog { get; set; }
+        public Ookii.Dialogs.Wpf.VistaOpenFileDialog fileDialog { get; set; }
         public string name { get; set; }
 
         public BaseView(MainWindow mainWindow, string name)
@@ -28,6 +32,8 @@ namespace Yor.ViewModels
             queue = new List<Action>();
             actions = new Dictionary<object, Action>();
             logger = new Models.Logger.Manager(this.mainWindow.log, name);
+            folderDialog = new Ookii.Dialogs.Wpf.VistaFolderBrowserDialog();
+            fileDialog = new Ookii.Dialogs.Wpf.VistaOpenFileDialog();
         }
 
         public async Task Run(Action action)

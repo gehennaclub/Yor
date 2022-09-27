@@ -53,23 +53,6 @@
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="Savefile">
-                <MenuItem Header="Editor" Click="ClickMenuSavefile">
-                    <MenuItem.Icon>
-                        <Image Source="/Assets/Icons/Menu/editor.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="Decoder">
-                    <MenuItem.Icon>
-                        <Image Source="/Assets/Icons/Menu/decode.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Header="Encoder">
-                    <MenuItem.Icon>
-                        <Image Source="/Assets/Icons/Menu/encode.png"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-            </MenuItem>
             <MenuItem Header="Settings" Command="{Binding MenuCommand}" CommandParameter="About">
                 <MenuItem Header="Interface" Command="{Binding MenuCommand}" Click="MenuItem_Click_About">
                     <MenuItem.Icon>

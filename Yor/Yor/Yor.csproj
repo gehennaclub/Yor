@@ -113,9 +113,6 @@
     <Compile Include="Views\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SaveEditor.xaml.cs">
-      <DependentUpon>SaveEditor.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Loading.xaml.cs">
       <DependentUpon>Loading.xaml</DependentUpon>
     </Compile>
@@ -138,10 +135,6 @@
     <Page Include="Views\About.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\SaveEditor.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Loading.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
