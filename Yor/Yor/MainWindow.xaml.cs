@@ -56,7 +56,7 @@ namespace Yor
 
         private async void tree_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            await mainViewModel.plugins.CoreEditorRaw.Load();
+            await mainViewModel.ClickItemTreeView();
         }
 
         private async void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -73,7 +73,7 @@ namespace Yor
 
         private async void EditorApply(object sender, RoutedEventArgs e)
         {
-            await mainViewModel.plugins.CoreEditorEdit.Apply(((Models.TreeView.Item)tree.SelectedItem).Path, content.Document);
+            await mainViewModel.ClickApplyEditor();
         }
     }
 }

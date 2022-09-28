@@ -27,6 +27,11 @@ namespace Yor.ViewModels
             plugins = new Plugins.Plugins(mainWindow);
         }
 
+        public async Task ClickItemTreeView()
+        {
+            await plugins.CoreEditorRaw.Load();
+        }
+
         public async Task WindowLoaded()
         {
             await plugins.CoreTreeItems.Load();
@@ -35,13 +40,19 @@ namespace Yor.ViewModels
 
         public async Task ClickMenuDirectory()
         {
-            folderDialog.ShowDialog();
-
-            if (folderDialog.SelectedPath != String.Empty)
+            if (folderDialog.ShowDialog() == true)
             {
-                mainWindow.root = folderDialog.SelectedPath;
-                await plugins.CoreTreeItems.Load();
+                if (folderDialog.SelectedPath != String.Empty)
+                {
+                    mainWindow.root = folderDialog.SelectedPath;
+                    await plugins.CoreTreeItems.Load();
+                }
             }
+        }
+
+        public async Task ClickApplyEditor()
+        {
+            await plugins.CoreEditorEdit.Apply(((Models.TreeView.Item)mainWindow.tree.SelectedItem).Path, mainWindow.content.Document);
         }
     }
 }

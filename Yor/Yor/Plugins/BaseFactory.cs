@@ -21,12 +21,15 @@ namespace Yor.Plugins.Core
             this.plugins = plugins;
         }
         
-        public BasePlugin Search(BasePlugin item)
+        public BasePlugin Search(string plugin_name)
         {
-            return (plugins[plugins.IndexOf(item)]);
+            foreach (BasePlugin plugin in plugins)
+            {
+                if (plugin.name == plugin_name)
+                    return (plugin);
+            }
 
-
-
+            return (null);
         }
 
         public override async Task Load()
