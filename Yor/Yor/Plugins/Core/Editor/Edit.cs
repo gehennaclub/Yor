@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
-using Yor.Plugins.Core.File;
 
 namespace Yor.Plugins.Core.Editor
 {
@@ -34,6 +30,16 @@ namespace Yor.Plugins.Core.Editor
             this.content = new TextRange(content.ContentStart, content.ContentEnd).Text;
 
             await Run(_Apply);
+        }
+
+        public async Task Set()
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task Load()
+        {
+            throw new NotImplementedException();
         }
     }
 }

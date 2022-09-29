@@ -26,14 +26,14 @@ namespace Yor.Plugins.Core.Tree
             List<Models.TreeView.Item> items = Models.Structure.Manager.Build(mainWindow.root);
             logger.Record($"Total files found: '{items.Count()}'");
 
-            if (mainWindow.tree.Items.Count > 0)
+            if (mainWindow.TreeDirectory.Items.Count > 0)
             {
-                mainWindow.tree.Items.Clear();
+                mainWindow.TreeDirectory.Items.Clear();
             }
             foreach (Models.TreeView.Item item in items)
             {
                 logger.Record($"File found: '{item.Name}'");
-                mainWindow.tree.Items.Add(item);
+                mainWindow.TreeDirectory.Items.Add(item);
             }
             logger.Force();
             logger.Record("Done");

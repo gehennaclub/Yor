@@ -21,7 +21,8 @@ namespace Yor
             folders = new List<string>()
             {
                 "Logs",
-                "Backup"
+                "Backup",
+                "Patch"
             };
 
             Build();

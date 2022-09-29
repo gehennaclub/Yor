@@ -8,8 +8,8 @@ namespace Yor.Plugins.Core.Bar
 {
     public class Factory : BaseFactory
     {
-        private OS os { get; set; }
-        private Version version { get; set; }
+        public OS os { get; set; }
+        public Version version { get; set; }
         private List<BasePlugin> plugins { get; set; }
         public static new string name = "Core.Bar.Factory";
 

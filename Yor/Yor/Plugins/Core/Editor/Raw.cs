@@ -31,10 +31,10 @@ namespace Yor.Plugins.Core.Editor
 
         private async void _Load()
         {
-            if (mainWindow.tree.SelectedItem != null)
+            if (mainWindow.TreeDirectory.SelectedItem != null)
             {
                 logger.Record("Analysing selected item");
-                item = (Models.TreeView.Item)mainWindow.tree.SelectedItem;
+                item = (Models.TreeView.Item)mainWindow.TreeDirectory.SelectedItem;
                 await informations.Set($"{item.Type}", item.Name, $"{item.Format}");
                 if (mainWindow.content.Document.Blocks.Count() > 0)
                 {

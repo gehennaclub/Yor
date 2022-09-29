@@ -29,7 +29,7 @@ namespace Yor.ViewModels
 
         public async Task ClickItemTreeView()
         {
-            await plugins.CoreEditorRaw.Load();
+            await plugins.Editor.raw.Load();
         }
 
         public async Task WindowLoaded()
@@ -50,9 +50,22 @@ namespace Yor.ViewModels
             }
         }
 
-        public async Task ClickApplyEditor()
+        public async Task ClickApplyEditor(object sender, RoutedEventArgs e)
         {
-            await plugins.CoreEditorEdit.Apply(((Models.TreeView.Item)mainWindow.tree.SelectedItem).Path, mainWindow.content.Document);
+            if (mainWindow.TreeDirectory.SelectedItem != null)
+            {
+                await plugins.Editor.edit.Apply(((Models.TreeView.Item)mainWindow.TreeDirectory.SelectedItem).Path, mainWindow.content.Document);
+            }
+        }
+
+        public async Task ClickSpoof(object sender, RoutedEventArgs e)
+        {
+            //await plugins.CoreEditorEdit.Apply(((Models.TreeView.Item)mainWindow.tree.SelectedItem).Path, mainWindow.content.Document);
+        }
+
+        public async Task ClickBuild(object sender, RoutedEventArgs e)
+        {
+            //await plugins.CoreEditorEdit.Apply(((Models.TreeView.Item)mainWindow.tree.SelectedItem).Path, mainWindow.content.Document);
         }
     }
 }

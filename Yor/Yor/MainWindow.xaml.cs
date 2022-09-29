@@ -73,7 +73,17 @@ namespace Yor
 
         private async void EditorApply(object sender, RoutedEventArgs e)
         {
-            await mainViewModel.ClickApplyEditor();
+            await mainViewModel.ClickApplyEditor(sender, e);
+        }
+
+        private async void ClickSpoof(object sender, RoutedEventArgs e)
+        {
+            await mainViewModel.ClickSpoof(sender, e);
+        }
+
+        private async void ClickBuild(object sender, RoutedEventArgs e)
+        {
+            await mainViewModel.ClickBuild(sender, e);
         }
     }
 }

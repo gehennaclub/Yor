@@ -102,7 +102,7 @@
                         </Grid>
                         <Border BorderBrush="{StaticResource GridBorders}" BorderThickness="1">
                             <ScrollViewer CanContentScroll="True" VerticalScrollBarVisibility="Auto" Margin="0,30,0,0">
-                                <TreeView Name="tree" SelectedItemChanged="tree_SelectedItemChanged">
+                                <TreeView Name="TreeDirectory" SelectedItemChanged="tree_SelectedItemChanged">
                                     <TreeView.ItemTemplate>
                                         <HierarchicalDataTemplate DataType="{x:Type tree:Item}" ItemsSource="{Binding Items}">
                                             <StackPanel Orientation="Horizontal">
@@ -165,9 +165,48 @@
                                 <Button Grid.Row="1" x:Name="save" Content="Apply" Width="100" Height="24" Click="EditorApply" HorizontalAlignment="Right"/>
                             </Grid>
                         </TabItem>
-                        <TabItem Header="Assembly">
+                        <TabItem Header="Configuration">
                             <Grid>
-                                <RichTextBox x:Name="contentHex" Foreground="White" Background="{StaticResource GridToolsBackground}" BorderThickness="0" IsReadOnly="True"/>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="12*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <ToggleButton x:Name="Config" Content="Config" Style="{DynamicResource {x:Static adonisUi:Styles.ToggleSwitch }}"/>
+                                </StackPanel>
+
+                                <Button Grid.Row="1" x:Name="BuildButton" Height="24" Width="75" Content="Build" Click="ClickBuild"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="Patch">
+                            <TabControl Background="{StaticResource GridToolsBackground}">
+                                <TabItem Header="Collection">
+                                    <ListBox x:Name="PatchCollection"/>
+                                </TabItem>
+                                <TabItem Header="Create">
+                                    
+                                </TabItem>
+                                <TabItem Header="Apply">
+
+                                </TabItem>
+                            </TabControl>
+                        </TabItem>
+                        <TabItem Header="HWID Spoofer">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="12*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <CheckBox x:Name="HwProfileGuid" Content="HwProfileGuid" IsChecked="True"/>
+                                    <CheckBox x:Name="MachineGuid" Content="MachineGuid" IsChecked="True"/>
+                                    <CheckBox x:Name="ComputerName" Content="ComputerName" IsChecked="True"/>
+                                    <CheckBox x:Name="ProductID" Content="ProductID" IsChecked="True"/>
+                                </StackPanel>
+
+                                <Button Grid.Row="1" x:Name="ApplyHwid" Height="24" Width="75" Content="Spoof" Click="ClickSpoof"/>
                             </Grid>
                         </TabItem>
                         <TabItem Header="API">
@@ -190,7 +229,6 @@
                             </Grid>
                         </TabItem>
                     </TabControl>
-                    <!--</Border>-->
                 </Grid>
 
                 <GridSplitter Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Stretch" Background="Transparent" Width="2"/>

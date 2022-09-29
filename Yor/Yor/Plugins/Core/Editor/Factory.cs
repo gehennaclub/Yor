@@ -8,8 +8,8 @@ namespace Yor.Plugins.Core.Editor
 {
     public class Factory : BaseFactory
     {
-        private Edit edit { get; set; }
-        private Raw raw { get; set; }
+        public Edit edit { get; set; }
+        public Raw raw { get; set; }
         private List<BasePlugin> plugins { get; set; }
         public static new string name = "Core.Editor.Factory";
 
