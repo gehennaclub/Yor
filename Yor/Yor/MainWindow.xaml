@@ -189,7 +189,7 @@
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="2*"/>
                                             <RowDefinition Height="*"/>
-                                            <RowDefinition Height="5*"/>
+                                            <RowDefinition Height="4*"/>
                                             <RowDefinition Height="*"/>
                                         </Grid.RowDefinitions>
 
@@ -198,6 +198,11 @@
                                             <TextBox x:Name="PatchFile" Height="24" Background="#FF32323F"/>
                                             <Label Content="Offset:"/>
                                             <TextBox x:Name="PatchOffset" Height="24" Background="#FF32323F"/>
+                                            <Label Content="Method:"/>
+                                            <ComboBox x:Name="PatchMethod" Height="24" Background="#FF32323F">
+                                                <ComboBoxItem x:Name="PatchMehodInsert" Content="Insert"/>
+                                                <ComboBoxItem x:Name="PatchMehodReplace" Content="Replace"/>
+                                            </ComboBox>
                                         </StackPanel>
 
                                         <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
@@ -209,7 +214,7 @@
                                         </Grid>
 
                                         <StackPanel Grid.Row="3" VerticalAlignment="Center">
-                                            <Button Content="Build" Width="100"/>
+                                            <Button Content="Create" Width="100" Background="#FF32323F"/>
                                         </StackPanel>
                                     </Grid>
                                 </TabItem>
