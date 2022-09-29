@@ -185,10 +185,33 @@
                                     <ListBox x:Name="PatchCollection"/>
                                 </TabItem>
                                 <TabItem Header="Create">
-                                    
-                                </TabItem>
-                                <TabItem Header="Apply">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="2*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="5*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
 
+                                        <StackPanel VerticalAlignment="Center">
+                                            <Label Content="File:"/>
+                                            <TextBox x:Name="PatchFile" Height="24" Background="#FF32323F"/>
+                                            <Label Content="Offset:"/>
+                                            <TextBox x:Name="PatchOffset" Height="24" Background="#FF32323F"/>
+                                        </StackPanel>
+
+                                        <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
+                                            <Label Content="Payload:"/>
+                                        </StackPanel>
+
+                                        <Grid Grid.Row="2">
+                                            <RichTextBox x:Name="PatchPayload" Background="#FF32323F" BorderBrush="#FF1F2029"/>
+                                        </Grid>
+
+                                        <StackPanel Grid.Row="3" VerticalAlignment="Center">
+                                            <Button Content="Build" Width="100"/>
+                                        </StackPanel>
+                                    </Grid>
                                 </TabItem>
                             </TabControl>
                         </TabItem>

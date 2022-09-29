@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Yor.Plugins.Core.Memory;
 
-namespace Yor.Plugins.Core.Fpatch
+namespace Yor.Plugins.Core.FPatch
 {
     public class Mapper
     {

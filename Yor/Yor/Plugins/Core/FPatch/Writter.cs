@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Yor.Plugins.Core.Fpatch
+namespace Yor.Plugins.Core.FPatch
 {
     public class Writter
     {
-        public void save(Models.Rootobject model)
+        public void save(Model.Rootobject model)
         {
             string output = "Patch";
 

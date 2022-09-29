@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Yor.Plugins.Core.Fpatch
+namespace Yor.Plugins.Core.FPatch
 {
     public class Payload
     {
